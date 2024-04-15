@@ -18,7 +18,7 @@ Dockerized High Accuracy Localization application based on Loc-NeRF paper and us
 ../hal_nerf/workspace
 ```
 
-3) Compose the image with this command :
+3) Compose the image with this command:
 
 ```bash
 docker build -t your_image_name .
@@ -29,13 +29,13 @@ docker build -t your_image_name .
 ```bash
 chmod +x run.bash
 ```
-5) Run bash script (5 arguments)  :
+5) Run bash script (5 arguments):
 
 ```bash
 ./run.bash --container-name <your_container_name> --cfg-dir $PWD/workspace/cfg_experiment --image-name <your_image_name> --poses-dir $PWD/workspace/colmap_output --ckpt $PWD/workspace/weight.ckpt
 ```
 
-6) PART A. Now you are inside the container. First, prepare the dataset for DFNET training :
+6) PART A. Now you are inside the container. First, prepare the dataset for DFNET training:
 
 ```bash
 python colmap_to_mega_nerf.py --model_path /root/colmap_output/colmap --images_path /root/colmap_output/images --output_path /root/outputiw
@@ -56,7 +56,7 @@ with config_dfnet.txt you can control some of the network training parameters
 roslaunch locnerf navigate.launch parameter_file:=<param_file.yaml>
 ```
 
-- Replace <param_file.yaml> with "hal_nerf.yaml" inside the cfg_experiment folder. The configuration files are the same with the locnerf pipeline except the first eight args. Specifically, we added the following parameters :   
+- Replace <param_file.yaml> with "hal_nerf.yaml" inside the cfg_experiment folder. The configuration files are the same with the locnerf pipeline except the first eight args. Specifically, we added the following parameters:   
   1) position_error_threshold
   2) rotation_error_threshold 
   3) termination_mode    #  0: use position_error_threshold, 1: use rotation_error_threshold, 2: use position_error_threshold and rotation_error_threshold
