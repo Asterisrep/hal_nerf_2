@@ -86,3 +86,4 @@ We've run this in a PC with the following specs:
 - OS name : Ubuntu 22.04.3 LTS
 
 # License
+This project is licensed under the [MIT License]().
